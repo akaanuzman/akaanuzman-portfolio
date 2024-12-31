@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiTailwindcss, SiMongodb, SiFlutter, SiDart, SiFirebase, SiGo, SiSwift, SiJavascript, SiMysql, SiGooglecloud, SiDocker, SiGit, SiGithub, SiAwsamplify, SiAwsorganizations } from "react-icons/si";
+import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiTailwindcss, SiMongodb, SiFlutter, SiDart, SiFirebase, SiGo, SiSwift, SiJavascript, SiMysql, SiGooglecloud, SiDocker } from "react-icons/si";
 import TypewriterText from "./TypewriterText";
 
 const techStack = [
@@ -65,7 +65,7 @@ export default function TechStack() {
                     viewport={{ once: true }}
                     className="grid grid-cols-2 md:grid-cols-5 gap-6"
                 >
-                    {techStack.map((tech, index) => (
+                    {techStack.map((tech) => (
                         <motion.div
                             key={tech.name}
                             variants={item}

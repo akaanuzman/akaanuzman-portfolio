@@ -31,7 +31,7 @@ const RocketLoader = ({ onLoadingComplete }: RocketLoaderProps) => {
         // Update dots periodically
         const dotsInterval = setInterval(() => {
             setDots(prev => {
-                const newDots = prev.map(dot => generatePoint());
+                const newDots = prev.map(() => generatePoint());
                 return newDots;
             });
         }, 500); // Update every 500ms

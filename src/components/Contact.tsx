@@ -53,7 +53,7 @@ const Contact = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 gradient-text">Get in Touch</h2>
             <p className="text-xl text-base-content/80">
-              Have a project in mind? Let's work together!
+              Have a project in mind? Let&apos;s work together!
             </p>
           </div>
 

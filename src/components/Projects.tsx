@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FiGlobe, FiSmartphone } from "react-icons/fi";
+import { FiGlobe } from "react-icons/fi";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
 import { SiFlutter, SiFirebase, SiNodedotjs, SiMongodb, SiDart, SiNextdotjs, SiJavascript, SiTypescript, SiReact, SiTailwindcss } from "react-icons/si";
 import { IconType } from "react-icons";
