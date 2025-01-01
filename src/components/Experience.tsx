@@ -141,84 +141,57 @@ export default function Experience() {
     };
 
     return (
-        <section className="py-20 relative">
-            {/* Animated path background */}
-            <div className="absolute inset-0 z-0">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <motion.path
-                        d="M 0,50 C 20,40 30,60 50,50 C 70,40 80,60 100,50"
-                        stroke="currentColor"
-                        strokeWidth="0.5"
-                        strokeDasharray="5,5"
-                        fill="none"
-                        className="text-primary/20"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                    />
-                </svg>
-            </div>
-
-            <div className="container mx-auto px-4 relative z-10">
+        <section id="experience" className="py-12 md:py-20">
+            <div className="container mx-auto px-4">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-5xl md:text-7xl font-bold mb-16 text-center hover-gradient"
+                    className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 md:mb-16 text-center hover-gradient"
                 >
                     <TypewriterText text="Journey" />
                 </motion.h2>
 
-                <div className="grid grid-cols-1 gap-8 relative">
+                <div className="max-w-6xl mx-auto">
                     {/* Experience Section */}
                     <motion.div
                         variants={container}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="space-y-8"
+                        className="mb-20"
                     >
-                        {experiences.map((exp, index) => (
-                            <motion.div
-                                key={`${exp.company}-${index}`}
-                                variants={itemVariants}
-                                className="group relative"
-                            >
-                                {/* Connection line */}
-                                <div className="absolute top-0 left-[27px] w-0.5 h-full bg-gradient-to-b from-primary/20 via-secondary/20 to-accent/20" />
-
-                                {/* Timeline item */}
-                                <div className="flex gap-6">
-                                    {/* Icon */}
-                                    <div className="relative z-10">
-                                        <div className="w-14 h-14 rounded-full bg-background/50 backdrop-blur-sm border border-primary/10 flex items-center justify-center group-hover:border-primary/30 transition-all duration-500">
-                                            <FiBriefcase className="w-6 h-6 text-primary group-hover:text-secondary transition-colors duration-300" />
-                                        </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1">
-                                        <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-6 group-hover:border-primary/30 transition-all duration-500">
-                                            {/* Animated gradient background */}
-                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-
-                                            {/* Content */}
-                                            <div className="relative z-10">
-                                                <h3 className="text-xl font-bold mb-2 gradient-text">{exp.title}</h3>
-                                                <h4 className="text-lg font-semibold text-primary mb-1">{exp.company}</h4>
-                                                <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
-                                                    <span>{exp.period}</span>
-                                                    <span>•</span>
-                                                    <span>{exp.location}</span>
-                                                </div>
-                                                <p className="text-foreground/80">{exp.description}</p>
+                        <h3 className="text-3xl md:text-4xl font-bold mb-8 gradient-text">Work Experience</h3>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            {experiences.map((exp, index) => (
+                                <motion.div
+                                    key={`${exp.company}-${index}`}
+                                    variants={itemVariants}
+                                    className="group hover-card"
+                                >
+                                    <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-6 h-full">
+                                        <div className="absolute top-4 right-4">
+                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                                <FiBriefcase className="w-6 h-6 text-primary group-hover:text-secondary transition-colors duration-500" />
                                             </div>
                                         </div>
+                                        <div className="pr-16">
+                                            <h4 className="text-xl font-bold mb-2 gradient-text">{exp.title}</h4>
+                                            <p className="text-lg font-semibold text-primary mb-1">{exp.company}</p>
+                                            <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
+                                                <span>{exp.period}</span>
+                                                <span>•</span>
+                                                <span>{exp.location}</span>
+                                            </div>
+                                            <p className="text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                                                {exp.description}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))}
+                        </div>
                     </motion.div>
 
                     {/* Education Section */}
@@ -227,84 +200,71 @@ export default function Experience() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="space-y-8"
                     >
-                        {education.map((edu, index) => (
-                            <motion.div
-                                key={`${edu.institution}-${index}`}
-                                variants={itemVariants}
-                                className="group relative"
-                            >
-                                {/* Connection line */}
-                                <div className="absolute top-0 left-[27px] w-0.5 h-full bg-gradient-to-b from-primary/20 via-secondary/20 to-accent/20" />
-
-                                {/* Timeline item */}
-                                <div className="flex gap-6">
-                                    {/* Icon */}
-                                    <div className="relative z-10">
-                                        <div className="w-14 h-14 rounded-full bg-background/50 backdrop-blur-sm border border-primary/10 flex items-center justify-center group-hover:border-primary/30 transition-all duration-500">
-                                            <FiBook className="w-6 h-6 text-primary group-hover:text-secondary transition-colors duration-300" />
+                        <h3 className="text-3xl md:text-4xl font-bold mb-8 gradient-text">Education</h3>
+                        <div className="grid grid-cols-1 gap-6">
+                            {education.map((edu, index) => (
+                                <motion.div
+                                    key={`${edu.institution}-${index}`}
+                                    variants={itemVariants}
+                                    className="group hover-card"
+                                >
+                                    <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-6">
+                                        <div className="absolute top-4 right-4">
+                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                                <FiBook className="w-6 h-6 text-primary group-hover:text-secondary transition-colors duration-500" />
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1">
-                                        <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-6 group-hover:border-primary/30 transition-all duration-500">
-                                            {/* Animated gradient background */}
-                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                                            
-                                            {/* Content */}
-                                            <div className="relative z-10">
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <div>
-                                                        <h3 className="text-xl font-bold gradient-text">{edu.title}</h3>
-                                                        <h4 className="text-lg font-semibold text-primary">{edu.institution}</h4>
-                                                    </div>
-                                                    <div className="text-right">
-                                                        <span className="text-lg font-semibold gradient-text">GPA: {edu.gpa}</span>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
-                                                    <span>{edu.period}</span>
-                                                    <span>•</span>
-                                                    <span>{edu.location}</span>
-                                                </div>
-
-                                                <p className="text-foreground/80 mb-6">{edu.description}</p>
-
-                                                {/* Achievements */}
-                                                <div className="mb-6">
-                                                    <h5 className="text-md font-semibold text-primary mb-3">Achievements</h5>
-                                                    <ul className="list-disc list-inside space-y-2">
-                                                        {edu.achievements.map((achievement, i) => (
-                                                            <li key={i} className="text-foreground/80 group-hover:text-foreground transition-colors duration-300">
-                                                                {achievement}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-
-                                                {/* Relevant Courses */}
+                                        <div className="pr-16">
+                                            <div className="flex justify-between items-start mb-4">
                                                 <div>
-                                                    <h5 className="text-md font-semibold text-primary mb-3">Key Courses</h5>
-                                                    <div className="flex flex-wrap gap-2">
-                                                        {edu.courses.map((course, i) => (
-                                                            <span
-                                                                key={i}
-                                                                className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors duration-300"
-                                                            >
-                                                                {course}
-                                                            </span>
-                                                        ))}
-                                                    </div>
+                                                    <h4 className="text-xl font-bold gradient-text">{edu.title}</h4>
+                                                    <p className="text-lg font-semibold text-primary">{edu.institution}</p>
+                                                </div>
+                                                <div className="text-right">
+                                                    <span className="text-lg font-semibold gradient-text">GPA: {edu.gpa}</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
+                                                <span>{edu.period}</span>
+                                                <span>•</span>
+                                                <span>{edu.location}</span>
+                                            </div>
+
+                                            <p className="text-foreground/80 mb-6">{edu.description}</p>
+
+                                            {/* Achievements */}
+                                            <div className="mb-6">
+                                                <h5 className="text-md font-semibold text-primary mb-3">Achievements</h5>
+                                                <ul className="list-disc list-inside space-y-2">
+                                                    {edu.achievements.map((achievement, i) => (
+                                                        <li key={i} className="text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                                                            {achievement}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+
+                                            {/* Key Courses */}
+                                            <div>
+                                                <h5 className="text-md font-semibold text-primary mb-3">Key Courses</h5>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {edu.courses.map((course, i) => (
+                                                        <span
+                                                            key={i}
+                                                            className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors duration-300"
+                                                        >
+                                                            {course}
+                                                        </span>
+                                                    ))}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))}
+                        </div>
                     </motion.div>
                 </div>
             </div>

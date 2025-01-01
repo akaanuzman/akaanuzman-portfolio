@@ -112,7 +112,7 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8"
         >
           {projects.map((project) => (
             <motion.div
@@ -120,14 +120,14 @@ export default function Projects() {
               variants={item}
               className="group relative overflow-hidden"
             >
-              <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500">
+              <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-8 hover:border-primary/30 transition-all duration-500">
                 {/* Animated gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Project Image */}
-                  <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+                  <div className="relative w-full h-36 md:h-48 mb-4 md:mb-6 rounded-xl overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -137,56 +137,56 @@ export default function Projects() {
                   </div>
                   
                   {/* Title with gradient effect */}
-                  <h3 className="text-2xl font-bold mb-4 gradient-text">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 gradient-text">
                     {project.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-foreground/80 group-hover:text-foreground transition-colors duration-500 mb-6">
+                  <p className="text-sm md:text-base text-foreground/80 group-hover:text-foreground transition-colors duration-500 mb-4 md:mb-6">
                     {project.description}
                   </p>
 
                   {/* Platform Links */}
-                  <div className="flex flex-wrap gap-4 mb-6">
+                  <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-6">
                     <a
                       href={project.platforms.web}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-300"
+                      className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-primary hover:text-secondary transition-colors duration-300"
                     >
-                      <FiGlobe className="w-5 h-5" />
+                      <FiGlobe className="w-4 h-4 md:w-5 md:h-5" />
                       <span>Website</span>
                     </a>
                     <a
                       href={project.platforms.playStore}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-300"
+                      className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-primary hover:text-secondary transition-colors duration-300"
                     >
-                      <FaGooglePlay className="w-5 h-5" />
+                      <FaGooglePlay className="w-4 h-4 md:w-5 md:h-5" />
                       <span>Play Store</span>
                     </a>
                     <a
                       href={project.platforms.appStore}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-secondary transition-colors duration-300"
+                      className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-primary hover:text-secondary transition-colors duration-300"
                     >
-                      <FaAppStore className="w-5 h-5" />
+                      <FaAppStore className="w-4 h-4 md:w-5 md:h-5" />
                       <span>App Store</span>
                     </a>
                   </div>
 
                   {/* Tags with Icons */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
                     {project.tags.map((tag) => {
                       const Icon = techIcons[tag];
                       return (
                         <span
                           key={tag}
-                          className="flex items-center gap-2 px-3 py-1 text-sm rounded-full bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors duration-300"
+                          className="flex items-center gap-1 md:gap-2 px-2 md:px-3 py-0.5 md:py-1 text-xs md:text-sm rounded-full bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors duration-300"
                         >
-                          <Icon className="w-4 h-4" />
+                          <Icon className="w-3 h-3 md:w-4 md:h-4" />
                           {tag}
                         </span>
                       );

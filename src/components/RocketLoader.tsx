@@ -97,14 +97,14 @@ const RocketLoader = ({ onLoadingComplete }: RocketLoaderProps) => {
 
             <div className="relative w-full h-screen max-w-6xl mx-auto flex flex-col items-center justify-center">
                 {/* Rocket Animation Section - Top Third */}
-                <div className="relative w-full h-60">
+                <div className="relative w-full h-60 sm:h-72 md:h-80">
                     <motion.div
                         className="absolute top-1/2 -translate-y-1/2 rocket-container"
                         initial={{ x: '-100%' }}
                         animate={{ x: '100%' }}
-                        transition={{ duration: 5, ease: 'linear' }}
+                        transition={{ duration: 5, ease: 'easeInOut' }}
                     >
-                        <div className="relative w-40 h-40">
+                        <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40">
                             {/* Enhanced Smoke Trail */}
                             <div className="absolute right-0 top-1/2 -translate-y-1/2">
                                 {[...Array(15)].map((_, i) => (
@@ -156,6 +156,7 @@ const RocketLoader = ({ onLoadingComplete }: RocketLoaderProps) => {
                                     width={160}
                                     height={160}
                                     className="w-full h-full object-contain transform rotate-90"
+                                    priority
                                 />
                             </motion.div>
 
@@ -196,9 +197,9 @@ const RocketLoader = ({ onLoadingComplete }: RocketLoaderProps) => {
                 </div>
 
                 {/* Radar Loading Section - Bottom Two-Thirds */}
-                <div className="relative mt-20">
+                <div className="relative mt-10 sm:mt-16 md:mt-20">
                     {/* Radar Container */}
-                    <div className="relative w-96 h-96">
+                    <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
                         {/* Radar Circles */}
                         {[...Array(4)].map((_, i) => (
                             <div

@@ -52,14 +52,14 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold mb-16 text-center hover-gradient"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 md:mb-16 text-center hover-gradient"
         >
           <TypewriterText text="What I Do" />
         </motion.h2>
@@ -68,7 +68,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
         >
           {services.map((service) => (
             <motion.div
@@ -76,27 +76,27 @@ export default function About() {
               variants={item}
               className="group relative overflow-hidden"
             >
-              <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500">
+              <div className="relative bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-6 lg:p-8 hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Animated gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon with glow effect */}
-                  <div className="mb-6 relative">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                      <service.icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-500" />
+                  <div className="mb-4 md:mb-6 relative">
+                    <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                      <service.icon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-primary group-hover:text-secondary transition-colors duration-500" />
                     </div>
                     <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                   </div>
                   
                   {/* Title with gradient effect */}
-                  <h3 className="text-2xl font-bold mb-4 gradient-text">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 gradient-text">
                     {service.title}
                   </h3>
                   
                   {/* Description with fade-in effect */}
-                  <p className="text-foreground/80 group-hover:text-foreground transition-colors duration-500">
+                  <p className="text-sm md:text-base text-foreground/80 group-hover:text-foreground transition-colors duration-500">
                     {service.description}
                   </p>
                 </div>

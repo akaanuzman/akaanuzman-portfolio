@@ -7,21 +7,51 @@ import CustomCursor from "@/components/CustomCursor";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kaan Uzman | Full Stack Developer",
-  description: "Full Stack Developer Portfolio of Kaan Uzman",
+  title: "Kaan Uzman - Full Stack Developer",
+  description: "A passionate Full Stack Developer specializing in mobile and web development.",
+  keywords: "Full Stack Developer, Mobile Developer, Web Developer, Flutter, React, Next.js, Node.js",
+  authors: [{ name: "Kaan Uzman" }],
+  creator: "Kaan Uzman",
+  publisher: "Kaan Uzman",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://kaanuzman.dev",
+    siteName: "Kaan Uzman",
+    title: "Kaan Uzman - Full Stack Developer",
+    description: "A passionate Full Stack Developer specializing in mobile and web development.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Kaan Uzman - Full Stack Developer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kaan Uzman - Full Stack Developer",
+    description: "A passionate Full Stack Developer specializing in mobile and web development.",
+    creator: "@akaanuzman",
+    images: ["/og-image.png"]
+  }
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" data-theme="dark">
-      <body className={`${inter.className} overflow-x-hidden`}>
-        <CustomCursor />
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased`}>
         <AnimationProvider>
-          {children}
+          <main className="flex min-h-screen flex-col">
+            {children}
+          </main>
+          <CustomCursor />
         </AnimationProvider>
       </body>
     </html>

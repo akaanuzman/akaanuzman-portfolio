@@ -1,5 +1,7 @@
 import { UserIcon, EnvelopeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi';
+import TypewriterText from './TypewriterText';
 
 const Contact = () => {
   const inputVariants = {
@@ -40,190 +42,233 @@ const Contact = () => {
     }
   };
 
+  const container = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15
+      }
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission
+  };
+
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 md:py-20">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          variants={cardVariants}
-          className="max-w-4xl mx-auto"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 md:mb-16 text-center hover-gradient"
         >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 gradient-text">Get in Touch</h2>
-            <p className="text-xl text-base-content/80">
-              Have a project in mind? Let&apos;s work together!
-            </p>
-          </div>
-
+          <TypewriterText text="Get in Touch" />
+        </motion.h2>
+        
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            className="bg-base-200 rounded-2xl p-8 shadow-lg backdrop-blur-sm"
-            variants={cardVariants}
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12"
           >
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.div
-                  initial="initial"
-                  whileHover="hover"
-                  whileFocus="focus"
-                  variants={inputVariants}
-                  className="form-control relative"
-                >
-                  <label className="label">
-                    <span className="label-text text-base-content/80">Name</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                      <UserIcon className="w-5 h-5 text-primary" />
-                    </div>
-                    <motion.input
-                      whileFocus="focus"
-                      variants={inputVariants}
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full pl-10 pr-4 py-2 border rounded-lg bg-base-100/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 focus:outline-none transition-all duration-300"
-                    />
+            {/* Contact Info */}
+            <motion.div variants={item} className="space-y-6">
+              <div className="hover-card group">
+                <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 gradient-text">Contact Information</h3>
+                  <div className="space-y-4">
+                    <motion.div 
+                      className="flex items-center gap-3 glow"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                      <div className="relative">
+                        <FiMail className="w-5 h-5 text-primary animate-pulse" />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg animate-pulse" />
+                      </div>
+                      <a href="mailto:uzmanakan@gmail.com" className="text-sm md:text-base shimmer">
+                        uzmanakan@gmail.com
+                      </a>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-3 glow"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                      <div className="relative">
+                        <FiPhone className="w-5 h-5 text-primary animate-pulse" />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg animate-pulse" />
+                      </div>
+                      <a href="tel:+905434343180" className="text-sm md:text-base shimmer">
+                        +90 543 434 31 80
+                      </a>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-3 glow"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                      <div className="relative">
+                        <FiMapPin className="w-5 h-5 text-primary animate-pulse" />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg animate-pulse" />
+                      </div>
+                      <span className="text-sm md:text-base shimmer">Istanbul, Turkey</span>
+                    </motion.div>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  initial="initial"
-                  whileHover="hover"
-                  whileFocus="focus"
-                  variants={inputVariants}
-                  className="form-control relative"
-                >
-                  <label className="label">
-                    <span className="label-text text-base-content/80">Email</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                      <EnvelopeIcon className="w-5 h-5 text-primary" />
-                    </div>
-                    <motion.input
-                      whileFocus="focus"
-                      variants={inputVariants}
-                      type="email"
-                      placeholder="example@example.com"
-                      className="w-full pl-10 pr-4 py-2 border rounded-lg bg-base-100/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 focus:outline-none transition-all duration-300"
-                    />
-                  </div>
-                </motion.div>
+                </div>
               </div>
-
-              <motion.div
-                initial="initial"
-                whileHover="hover"
-                whileFocus="focus"
-                variants={inputVariants}
-                className="form-control relative"
-              >
-                <label className="label">
-                  <span className="label-text text-base-content/80">Subject</span>
-                </label>
-                <div className="relative">
-                  <motion.input
-                    whileFocus="focus"
-                    variants={inputVariants}
-                    type="text"
-                    placeholder="Project Inquiry"
-                    className="w-full px-4 py-2 border rounded-lg bg-base-100/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 focus:outline-none transition-all duration-300"
-                  />
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial="initial"
-                whileHover="hover"
-                whileFocus="focus"
-                variants={inputVariants}
-                className="form-control relative"
-              >
-                <label className="label">
-                  <span className="label-text text-base-content/80">Message</span>
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                    <ChatBubbleLeftRightIcon className="w-5 h-5 text-primary" />
+              
+              <div className="hover-card group">
+                <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 gradient-text">Social Media</h3>
+                  <div className="flex gap-4">
+                    <motion.a
+                      href="https://github.com/akaanuzman"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative p-3 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FiGithub className="w-6 h-6 group-hover:text-primary transition-colors" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
+                    <motion.a
+                      href="https://linkedin.com/in/akaanuzman"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative p-3 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FiLinkedin className="w-6 h-6 group-hover:text-primary transition-colors" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
+                    <motion.a
+                      href="https://twitter.com/akaanuzmann"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative p-3 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FiTwitter className="w-6 h-6 group-hover:text-primary transition-colors" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
+                    <motion.a
+                      href="https://instagram.com/akaanuzmann"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative p-3 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FiInstagram className="w-6 h-6 group-hover:text-primary transition-colors" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
                   </div>
-                  <motion.textarea
-                    whileFocus="focus"
-                    variants={inputVariants}
-                    placeholder="Tell me about your project..."
-                    rows={4}
-                    className="w-full pl-10 pr-4 py-2 border rounded-lg bg-base-100/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 focus:outline-none resize-none transition-all duration-300"
-                  />
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="btn btn-primary w-full"
-              >
-                Send Message
-              </motion.button>
-            </form>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <motion.a
-                href="mailto:uzmanakan@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-lg bg-base-100/30 backdrop-blur-sm hover:bg-base-100/50 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+            {/* Contact Form */}
+            <motion.div variants={item}>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm md:text-base font-medium mb-2 gradient-text">
+                    Name
+                  </label>
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                  >
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-2 bg-background/50 backdrop-blur-sm border border-primary/10 rounded-lg 
+                               focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 
+                               transition-all duration-300 hover:border-primary/30"
+                    />
+                  </motion.div>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Email</h3>
-                  <p className="text-sm text-base-content/60">uzmanakan@gmail.com</p>
-                </div>
-              </motion.a>
-
-              <motion.a
-                href="tel:+90 543 434 31 80"
-                className="flex items-center gap-4 p-4 rounded-lg bg-base-100/30 backdrop-blur-sm hover:bg-base-100/50 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold">Phone</h3>
-                  <p className="text-sm text-base-content/60">+90 543 434 31 80</p>
-                </div>
-              </motion.a>
-
-              <motion.a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-lg bg-base-100/30 backdrop-blur-sm hover:bg-base-100/50 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+                  <label htmlFor="email" className="block text-sm md:text-base font-medium mb-2 gradient-text">
+                    Email
+                  </label>
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                  >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-2 bg-background/50 backdrop-blur-sm border border-primary/10 rounded-lg 
+                               focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 
+                               transition-all duration-300 hover:border-primary/30"
+                    />
+                  </motion.div>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Location</h3>
-                  <p className="text-sm text-base-content/60">Kutahya, Turkey</p>
+                  <label htmlFor="message" className="block text-sm md:text-base font-medium mb-2 gradient-text">
+                    Message
+                  </label>
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                  >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      required
+                      className="w-full px-4 py-2 bg-background/50 backdrop-blur-sm border border-primary/10 rounded-lg 
+                               focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 
+                               transition-all duration-300 hover:border-primary/30"
+                    ></textarea>
+                  </motion.div>
                 </div>
-              </motion.a>
-            </div>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-primary via-secondary to-accent text-white rounded-lg 
+                           shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 
+                           transition-all duration-300 relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Send Message</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+              </form>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
