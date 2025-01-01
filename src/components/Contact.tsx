@@ -1,47 +1,8 @@
-import { UserIcon, EnvelopeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi';
 import TypewriterText from './TypewriterText';
 
 const Contact = () => {
-  const inputVariants = {
-    initial: {
-      scale: 1,
-      boxShadow: '0 0 0 rgba(var(--primary-rgb), 0)',
-    },
-    focus: {
-      scale: 1.02,
-      boxShadow: '0 0 30px rgba(var(--primary-rgb), 0.3)',
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 25
-      }
-    },
-    hover: {
-      scale: 1.01,
-      boxShadow: '0 0 20px rgba(var(--primary-rgb), 0.2)',
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 25
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
   const container = {
     hidden: { opacity: 0, y: 20 },
     visible: {
