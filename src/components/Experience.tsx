@@ -28,7 +28,7 @@ const experiences: ExperienceItem[] = [
         title: "Frontend Developer",
         company: "Fiorent",
         period: "MAR 2025 - PRESENT",
-        location: "Hybrid",
+        location: "İstanbul - Hybrid",
         description: "Developing a web application for a leading Turkish bank using React and Next.js. Collaborating with a team of 5 developers, focusing on performance optimization and user experience."
     },
     {

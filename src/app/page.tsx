@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+// import Contact from "@/components/Contact";
 import TypewriterText from "@/components/TypewriterText";
 import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
@@ -153,7 +153,7 @@ export default function Home() {
                   variants={fadeInUp}
                   className="flex gap-4"
                 >
-                  <motion.div
+                  {/* <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -161,14 +161,14 @@ export default function Home() {
                     <Link href="#projects" onClick={handleNavigation} className="btn btn-primary">
                       View My Work
                     </Link>
-                  </motion.div>
+                  </motion.div> */}
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <Link href="#contact" onClick={handleNavigation} className="btn btn-outline">
-                      Get in Touch
+                    <Link href="#projects" onClick={handleNavigation} className="btn btn-outline">
+                      View My Work
                     </Link>
                   </motion.div>
                 </motion.div>
@@ -181,7 +181,7 @@ export default function Home() {
               <About />
               <Projects />
               <Experience />
-              <Contact />
+              {/* <Contact /> */}
             </>
           )}
         </motion.div>
