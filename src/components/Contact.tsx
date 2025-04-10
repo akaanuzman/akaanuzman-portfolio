@@ -46,7 +46,7 @@ const Contact = () => {
         >
           <TypewriterText text="Get in Touch" />
         </motion.h2>
-        
+
         <div className="max-w-4xl mx-auto">
           <motion.div
             variants={container}
@@ -61,7 +61,7 @@ const Contact = () => {
                 <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-6">
                   <h3 className="text-xl md:text-2xl font-bold mb-4 gradient-text">Contact Information</h3>
                   <div className="space-y-4">
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-3 glow"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 10 }}
@@ -74,20 +74,7 @@ const Contact = () => {
                         uzmanakan@gmail.com
                       </a>
                     </motion.div>
-                    <motion.div 
-                      className="flex items-center gap-3 glow"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                    >
-                      <div className="relative">
-                        <FiPhone className="w-5 h-5 text-primary animate-pulse" />
-                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg animate-pulse" />
-                      </div>
-                      <a href="tel:+905434343180" className="text-sm md:text-base shimmer">
-                        +90 543 434 31 80
-                      </a>
-                    </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-3 glow"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 10 }}
@@ -101,7 +88,7 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="hover-card group">
                 <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-2xl p-4 md:p-6">
                   <h3 className="text-xl md:text-2xl font-bold mb-4 gradient-text">Social Media</h3>
