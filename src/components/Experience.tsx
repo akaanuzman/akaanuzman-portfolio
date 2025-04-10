@@ -25,9 +25,16 @@ interface EducationItem {
 
 const experiences: ExperienceItem[] = [
     {
-        title: "Mid Full Stack Developer",
+        title: "Frontend Developer",
+        company: "Fiorent",
+        period: "MAR 2025 - PRESENT",
+        location: "Hybrid",
+        description: "Developing a web application for a leading Turkish bank using React and Next.js. Collaborating with a team of 5 developers, focusing on performance optimization and user experience."
+    },
+    {
+        title: "Senior Full Stack Developer",
         company: "Singularity Software Technologies",
-        period: "DEC 2022 - Present",
+        period: "DEC 2022 - MAR 2025",
         location: "Remote",
         description: "Led a team of 8 as Scrum Master for the Anytime project, which won the 2023 Dijifikir Championship. Integrated the project into 'Istanbul Senin' super app, automated deployments using Fastlane, and mentored three interns while maintaining clean code principles."
     },
@@ -225,7 +232,7 @@ export default function Experience() {
                                                     <span className="text-lg font-semibold gradient-text">GPA: {edu.gpa}</span>
                                                 </div>
                                             </div>
-                                            
+
                                             <div className="flex items-center gap-2 text-sm text-foreground/60 mb-4">
                                                 <span>{edu.period}</span>
                                                 <span>•</span>

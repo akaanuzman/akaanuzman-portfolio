@@ -92,16 +92,16 @@ export default function Home() {
         <AnimatePresence>
           {isLoading && <RocketLoader onLoadingComplete={handleLoadingComplete} />}
         </AnimatePresence>
-        
+
         <div className="animated-bg">
           <div className="animated-shape shape-1"></div>
           <div className="animated-shape shape-2"></div>
           <div className="animated-shape shape-3"></div>
         </div>
-        
+
         <div className="corner-shape"></div>
-        
-        <motion.div 
+
+        <motion.div
           className="content-wrapper"
           initial={{ opacity: 0 }}
           animate={{ opacity: showContent ? 1 : 0 }}
@@ -125,7 +125,7 @@ export default function Home() {
                   variants={scaleIn}
                   className="text-xl md:text-2xl text-base-content/80 gradient-text hover-gradient"
                 >
-                  A passionate Full Stack Developer specializing in mobile and web development.
+                  A passionate Frontend Developer specializing in mobile and web development.
                 </motion.p>
                 <motion.p
                   variants={scaleIn}
